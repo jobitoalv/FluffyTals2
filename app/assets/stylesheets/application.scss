@@ -33,12 +33,11 @@
 }
 
  footer {
-    
      display: flex;
      flex-direction: column;
      align-items: center;
      justify-content: center;
-     position: absolute;
+     position: relative;
      width: 68vw;
      border-top: 2px solid pink;
      bottom: 0;

@@ -7,13 +7,15 @@
     <a class="nav-link active" aria-current="page" href="/">FluffyTals2</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/">Gromming Product</a>
+    <%= link_to "Show Product",  item_page_path, class:"nav-link active"%>
   </li>
    <li class="nav-item">
-    <a class="nav-link" href="/">About Us</a>
+    <%= link_to "Your cart", products_path, class:"nav-link active" %>
   </li> 
   <li class="nav-item">
-    <%= link_to "Sign in",new_user_session_path, class: "nav-link" %>
+    <% if !user_signed_in? %>
+     <%= link_to "Sign in",new_user_session_path, class: "nav-link" %>
+    <% end %>
   </li> 
 
   <li class="nav-item">

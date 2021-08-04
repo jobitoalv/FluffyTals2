@@ -1,0 +1,15 @@
+<div class="row row-cols-1 row-cols-md-2 g-4">
+ <div class="row">
+  <% @products.each do |product|%>
+   <div class="col-md-4">
+    <div class="card" style="widtd: 18rem;">
+    <%= image_tag product.picture, class: "card-img-top"%>
+     <div class="card-body">
+      <h5 class="card-title"><%= product.name%></h5>
+      <p class="card-text"><%= product.desription%></p>
+      <p class="card-text">$<%= product.price%></p>
+     </div>
+    </div>
+  </div>
+  <%end%>
+</div>
