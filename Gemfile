@@ -36,9 +36,9 @@ gem 'jquery-rails'
 #user authentication
 gem 'simple_form'
 gem 'devise'
-gem 'cancancan'
 
-gem 'aws-sdk-s3', '~> 1.64', require: false
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,3 +64,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "aws-sdk-s3", "~> 1.98"
+
+gem "stripe", "~> 5.37"

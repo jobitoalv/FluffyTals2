@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  
 
   # GET /products or /products.json
   def index
@@ -8,12 +9,41 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    # session = Stripe::Checkout::Session.create({ 
+    #   payment_method_types: [
+    #     'card',
+    #   ], 
+    #   customer_email: current_user ? current_user.email : nil,
+    #   line_items: [{
+    #     price_data: { 
+    #       unit_amount: (@product.price * 100).to_i,
+    #       currency: "aud",
+    #       product_data: {
+    #        name: @product.name,
+    #        description: @product.desription
+    #       }
+    #     },
+    #      quantity: 1,
+    #   }],
+    #   payment_intent_data:{ 
+    #     metadata: { 
+    #       product_id: @product.id,
+    #     }
+    #   },
+    #   mode: 'payment',
+    #   success_url: "#{root_url}payments/success",
+    #   cancel_url: "#{root_url}products",
+    # })
+    # @session_id = session.id
   end
+
 
   # GET /products/new
   def new
     @product = Product.new
   end
+
+  
 
   # GET /products/1/edit
   def edit
@@ -62,8 +92,13 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
+    def set_user_product
+      @product = current_user.products.find_by_id(params[:id])
+      redirect_to products_path
+    end 
+
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :desription, :price, :category, :user_id, :picture)
+      params.require(:product).permit(:name, :description, :price, :category, :user_id, :picture)
     end
 end

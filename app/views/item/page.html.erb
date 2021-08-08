@@ -1,17 +1,17 @@
 <div class="row">
   <% @products.each do |product|%>
-   <div class="col-md-4">
-    <div class="card" style="widtd: 18rem;">
-    <%= image_tag product.picture, class: "card-img-top"%>
-     <div class="card-body">
-      <h5 class="card-title"><%= product.name%></h5>
-      <p class="card-text product.desription"><%= product.desription%></p>
-      <p class="card-text">$<%= product.price%>
-      <%= link_to "Show More", product_path(product.id), class:"btn btn-primary btn-right"%>
-      </p>
-
-     </div>
+   <div class="col-md-4" style="width: 18rem;">
+    <div class="card">
+      <%= image_tag product.picture, class: "card-imag-top" if product.picture.attached? %>
+        <div class="card-body">
+         <h5 class="card-title"><%= product.name%></h5>
+         <p class="card-text"><%= product.desription%></p>
+         <p class="card-text">$<%= product.price%>
+         <%= link_to "Show More", product_path(product.id), class:"btn btn-primary btn-right"%>
+         </p>
+        </div>
     </div>
-  </div>
+   </div>
   <%end%>
 </div>
+
