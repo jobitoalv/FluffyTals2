@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.5.2'
 #gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
-
+gem 'ransack'
 #user authentication
 gem 'simple_form'
 gem 'devise'
