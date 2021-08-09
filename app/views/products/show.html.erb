@@ -29,8 +29,20 @@
 <%= image_tag @product.picture %>
 </p>
 
-
-<%= link_to 'buy', payment_page_path(product_id: @product.id), method: :post %>
-
+<%= render_buy_button(current_user, @product) %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const button = document.querySelector("[data-stripe='payment']")
+  if (button) {
+    button.addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      )
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      })
+    })
+  }
+</script>

@@ -9,6 +9,34 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    
+        Stripe.api_key = Rails.application.credentials.dig(:stripe, :secret_key)
+      session = Stripe::Checkout::Session.create({ 
+        payment_method_types: [
+        'card',
+        ], 
+         customer_email: current_user ? current_user.email : nil,
+         line_items: [{
+          price_data: { 
+           unit_amount: (@product.price * 100).to_i,
+            currency: "aud",
+            product_data: {
+            name: @product.name,
+            description: @product.desription
+           }
+        },
+         quantity: 1,
+       }],
+       payment_intent_data:{ 
+         metadata: { 
+           product_id: @product.id,
+         }
+       },
+      mode: 'payment',
+       success_url: "#{root_url}payments/success",
+       cancel_url: "#{root_url}products",
+     })
+     @session_id = session.id
      
   end
 
