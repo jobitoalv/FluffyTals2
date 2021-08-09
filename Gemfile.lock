@@ -58,10 +58,10 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    autoprefixer-rails (10.2.5.1)
-      execjs (> 0)
+    autoprefixer-rails (10.3.1.0)
+      execjs (~> 2)
     aws-eventstream (1.1.1)
-    aws-partitions (1.482.0)
+    aws-partitions (1.484.0)
     aws-sdk-core (3.119.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -78,7 +78,7 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.7.6)
+    bootsnap (1.7.7)
       msgpack (~> 1.0)
     bootstrap (4.5.3)
       autoprefixer-rails (>= 9.1.0)
@@ -106,7 +106,7 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.3)
-    globalid (0.5.1)
+    globalid (0.5.2)
       activesupport (>= 5.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
@@ -128,14 +128,10 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.0)
-    mini_portile2 (2.5.3)
     minitest (5.14.4)
     msgpack (1.4.2)
-    nio4r (2.5.7)
-    nokogiri (1.11.7)
-      mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
-    nokogiri (1.11.7-x86_64-linux)
+    nio4r (2.5.8)
+    nokogiri (1.12.2-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -244,7 +240,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-linux
 
 DEPENDENCIES
   aws-sdk-s3 (~> 1.98)
