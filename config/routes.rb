@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'item/page'
-  get "payments/page" , to: "payments#page" , as: 'payment_page'
+  post "payments/page" , to: "payments#page" , as: 'payment_page'
   devise_for :users 
   root 'home#page'
   resources :products
