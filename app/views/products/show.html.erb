@@ -27,7 +27,7 @@
 </p>
 
 <p>
-<%= image_tag @product.picture if product.picture.attached? %>
+<%= image_tag @product.picture if @product.picture.attached? %>
 </p>
 
 <%= render_buy_button(current_user, @product) %>
