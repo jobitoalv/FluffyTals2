@@ -31,7 +31,9 @@
 </p>
 
 <%= render_buy_button(current_user, @product) %>
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<% if current_user && current_user.admin %>
+ <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
