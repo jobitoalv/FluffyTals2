@@ -12,7 +12,7 @@
  require("@rails/ujs").start()
 
  Rails.start()
- Turbolinks.start()
+ //Turbolinks.start()
  ActiveStorage.start()
 
 //= require jquery3
