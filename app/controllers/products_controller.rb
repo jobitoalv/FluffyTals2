@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_user_product, only: [ :update, :edit, :destroy ]
   before_action :authenticate_user!, except: [:show, :index]
 
   # GET /products or /products.json
@@ -12,7 +13,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
-    
+    #payment with stripe
         Stripe.api_key = Rails.application.credentials.dig(:stripe, :secret_key)
       session = Stripe::Checkout::Session.create({ 
         payment_method_types: [
@@ -100,7 +101,7 @@ class ProductsController < ApplicationController
 
     def set_user_product
       @product = current_user.products.find_by_id(params[:id])
-      redirect_to products_path
+      redirect_to_products_path(product)
     end 
 
     # Only allow a list of trusted parameters through.
