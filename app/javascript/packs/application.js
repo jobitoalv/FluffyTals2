@@ -11,7 +11,7 @@
  import "bootstrap"
  require("@rails/ujs").start()
 
- Rails.start()
+ //Rails.start()
  //Turbolinks.start()
  ActiveStorage.start()
 
